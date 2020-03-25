@@ -17,7 +17,6 @@ export default {
     event: Object
   }
 }
-console.log(event)
 </script>
 
 <style scoped>

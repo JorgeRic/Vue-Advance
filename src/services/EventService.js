@@ -1,7 +1,6 @@
 import axios from 'axios'
 const apiClient = axios.create({
-  baseURL:
-    'https://raw.githubusercontent.com/Code-Pop/real-world-vue/master/db.json',
+  baseURL: 'http://localhost:3000',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -11,9 +10,9 @@ const apiClient = axios.create({
 
 export default {
   getEvents() {
-    return apiClient.get('')
+    return apiClient.get('/events')
   },
   getEvent(id) {
-    return apiClient.get('' + id)
+    return apiClient.get('/events/' + id)
   }
 }

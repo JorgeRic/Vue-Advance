@@ -2,7 +2,9 @@
   <div>
     <h1>Event Listing</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
-    <BaseIcon />
+    <BaseIcon>
+      <span>{{ events.length }}</span>
+    </BaseIcon>
   </div>
 </template>
 
@@ -21,8 +23,8 @@ export default {
   created() {
     EventService.getEvents()
       .then(response => {
-        console.log(response.data.events)
-        this.events = response.data.events
+        console.log(response.data)
+        this.events = response.data
       })
       .catch(error => console.log(error))
   }

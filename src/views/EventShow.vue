@@ -12,7 +12,9 @@
     <p>{{ event.description }}</p>
     <h2>
       Attendees
-      <span class="badge -fill-gradient">{{ event.attendees.length }}</span>
+      <span class="badge -fill-gradient">{{
+        event.attendees ? event.attendees.length : 0
+      }}</span>
     </h2>
     <ul class="list-group">
       <li
@@ -39,7 +41,7 @@ export default {
     EventService.getEvent(this.id)
       .then(response => {
         this.event = response.data
-        console.log(response)
+        console.log(response.data)
       })
       .catch(error => console.log(error))
   }

@@ -2,13 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router.js'
 import store from './store'
-import BaseIcon from '@/components/BaseIcon.vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
-import VueLodash from 'vue-lodash'
-import lodash from 'lodash'
-
-Vue.use(VueLodash, { lodash: lodash })
 
 const requireComponent = require.context(
   './components',
@@ -25,10 +20,6 @@ requireComponent.keys().forEach(fileName => {
 
   Vue.component(componentName, componentConfig.default || componentConfig)
 })
-Vue.component('BaseIcon', BaseIcon)
-
-Vue.config.productionTip = false
-
 new Vue({
   router,
   store,
